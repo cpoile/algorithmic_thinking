@@ -4,10 +4,11 @@
 
 #define SIZE 6
 
-typedef struct s_node {
+typedef struct s_node s_node;
+struct s_node {
     int snowflake[SIZE];
     s_node *next;
-} s_node;
+};
 
 bool checkRight(int orig[SIZE], int test[SIZE], int start)
 {
