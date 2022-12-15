@@ -1,0 +1,102 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "shell",
+			"label": "C/C++: cl.exe build main file",
+			"command": "cl.exe",
+			"args": [
+				"${workspaceFolder}/src/main.c",
+				"/Zi",
+				"/Femain.exe",
+				"/Fdmain.pdb",
+				"/std:c17",
+				"/link",
+				"/DEBUG:FULL"
+			],
+			"options": {
+				"cwd": "${workspaceFolder}/build"
+			},
+			"problemMatcher": [
+				"$msCompile"
+			],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
+		},
+		{
+			"type": "cppbuild",
+			"label": "C/C++: make.bat",
+			"command": "make.bat",
+			"args": [],
+			"options": {
+				"cwd": "${workspaceFolder}"
+			},
+			"problemMatcher": [
+				"$msCompile"
+			],
+			"group": {
+				"kind": "build",
+			},
+			"detail": "compiler: cl.exe",
+		},
+		{
+			"type": "shell",
+			"label": "build run",
+			"command": "${workspaceFolder}/build/main.exe",
+			// "args": ["<", "in1.txt"],
+			"options": {
+				"cwd": "${workspaceFolder}"
+			},
+			"group": {
+				"kind": "build",
+			},
+			"detail": "run",
+			"dependsOn": "C/C++: cl.exe build main file"
+		},
+		{
+			"type": "shell",
+			"label": "run",
+			"command": "${workspaceFolder}/build/main.exe",
+			// "args": ["<", "in1.txt"],
+			"options": {
+				"cwd": "${workspaceFolder}"
+			},
+			"group": {
+				"kind": "build",
+			},
+			"detail": "run",
+		},
+		{
+			"type": "process",
+			"label": "RemedyBG: Add breakpoint",
+			"command": "remedybg",
+			"args": [
+				"add-breakpoint-at-file",
+				"${file}",
+				"${lineNumber}"
+			],
+		},
+		{
+			"type": "process",
+			"label": "RemedyBG: Remove breakpoint",
+			"command": "remedybg",
+			"args": [
+				"remove-breakpoint-at-file",
+				"${file}",
+				"${lineNumber}"
+			],
+		},
+		{
+			"type": "process",
+			"label": "RemedyBG: Run to cursor",
+			"command": "remedybg",
+			"args": [
+				"run-to-cursor",
+				"${file}",
+				"${lineNumber}"
+			],
+		}
+	]
+}
