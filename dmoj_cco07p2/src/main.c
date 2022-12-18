@@ -1,7 +1,7 @@
 #include <inttypes.h>
-#include <stdlib.h>
 #include <stdbool.h>
 #include <stdio.h>
+#include <stdlib.h>
 
 #define SIZE 6
 #define ARR_SIZE 100000

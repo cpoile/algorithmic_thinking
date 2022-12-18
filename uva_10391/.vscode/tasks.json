@@ -7,10 +7,11 @@
 			"command": "cl.exe",
 			"args": [
 				"${workspaceFolder}/src/main.c",
-				"/Zi",
+				//"/Zi",
+				"/Za",
 				"/Femain.exe",
 				"/Fdmain.pdb",
-				"/std:c17",
+				//"/std:c17",
 				"/link",
 				"/DEBUG:FULL"
 			],
@@ -45,7 +46,7 @@
 			"type": "shell",
 			"label": "build run",
 			"command": "${workspaceFolder}/build/main.exe",
-			// "args": ["<", "in1.txt"],
+			"args": ["<", "in1.txt"],
 			"options": {
 				"cwd": "${workspaceFolder}"
 			},
@@ -59,7 +60,7 @@
 			"type": "shell",
 			"label": "run",
 			"command": "${workspaceFolder}/build/main.exe",
-			// "args": ["<", "in1.txt"],
+			"args": ["<", "in1.txt"],
 			"options": {
 				"cwd": "${workspaceFolder}"
 			},
